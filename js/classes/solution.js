@@ -3,10 +3,21 @@
  * JSON dictionary with two keys: "sections" and "schedules".
  */
 function Solution (data) {
-	this.raw_schedules = data.schedules;
-	this.raw_sections = data.sections;
-	this.schedules = [];
-	generateObjects();
+
+	/***************
+	 private methods
+	 ***************/
+
+	/**
+	 * Constructs Schedule objects from the given raw schedule data.
+	 */
+	var generateObjects = function () {
+		for (var i = 0; i < raw_schedules.length; i++) {
+			var thisSchedule = raw_schedules[i];
+			var newSchedule = new Schedule(thisSchedule);
+			this.schedules.push(newSchedule);
+		}
+	}
 
 	/****************
 	 public interface
@@ -25,21 +36,18 @@ function Solution (data) {
 	this.getSchedule = function (num) {
 		if (num < this.schedules.length && num >= 0) {
 			return this.schedules[num];
+		} else {
+			throw "Schedule index out of bounds.";
 		}
 	}
 
-	/***************
-	 private methods
-	 ***************/
+	/***********
+	 constructor
+	 ***********/
 
-	/**
-	 * Constructs Schedule objects from the given raw schedule data.
-	 */
-	function generateObjects () {
-		for (var i = 0; i < this.raw_schedules.length; i++) {
-			var thisSchedule = this.raw_schedules[i];
-			var newSchedule = new Schedule(thisSchedule);
-			this.schedules.push(newSchedule);
-		}
-	}
+	var raw_schedules = data.solutions;		// TODO right now, the server calls it "solutions", but it sould be called "schedules" to stay consistent. I need to change this.
+	var raw_sections = data.sections;
+	this.schedules = [];
+	generateObjects.call(this);
+
 }
