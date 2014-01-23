@@ -1,0 +1,13 @@
+<style>
+	#sortable { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+	#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 30px; }
+	#sortable li span { position: absolute; margin-left: -1.3em; }
+	#sortable li {
+		font-size: 100%;
+	}
+</style>
+
+<ul id="sortable">
+	<li  ng-repeat="priority in priorities" class="ui-state-default well" id="{{priority}}"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>	{{priorities.indexOf(priority) + 1}}. {{priority}}
+	</li>
+</ul>

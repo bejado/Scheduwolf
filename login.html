@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Scheduwolf</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+
+	<!-- So ng-cloak will work ASAP-->
+	<script type="text/javascript" src="js/lib/angular.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h1>Scheduwolf
+					<small>Discover the perfect USC schedule.</small>
+				</h1>
+			</div>
+		</div>
+
+		<div class="row jumbotron" ng-controller="EmailCtrl" >
+			<div class="col-xs-12">
+				<h3>We're Getting Things Ready</h3>
+				<p>Scheduwolf will redefine the way USC students register for classes. We're currently perfecting our technology. If you'd like to be notified when we've launched, submit your email below and we'll let you know.</p>
+				<div class="alert alert-success" ng-show="submitSuccess" ng-cloak>
+					Thank you! We'll let you know when Scheduwolf is ready.
+				</div>
+				<div class="alert alert-danger" ng-show="submitFailure" ng-cloak>
+					Uh oh! There seems to be a problem with our server. Sorry for the inconvenience, please try again later.
+				</div>
+				<div ng-hide="submitSuccess || submitFailure">
+					<div ng-class="{'has-success': validEmail, 'has-error': !validEmail}">
+						<label for="email">Email</label>
+						<input ng-model="email" ng-change="emailChange()" type="text" class="form-control" style="width: 500px">
+					</div>
+					<input ng-click="submitEmail()" type="submit" class="btn btn-default" ng-class="{disabled: !validEmail}" value="Submit">
+				</div>
+			</div>
+		</div>
+
+		<div class="row jumbotron">
+				<p>If you're part of our Beta team, you can enter the site with the code we provided you.<p>
+				<form class="form-group" name="login" method="post" action="login.php">
+					<label for="password">Entry code</label>
+					<input type="password" class="form-control" style="width: 300px" name="password">
+					<input type="submit" class="btn btn-default" name="submit" value="Enter Site">
+				</form>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+
+	<script type="text/javascript" src="js/controllers/email.js"></script>
+</body>
+</html>

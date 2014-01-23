@@ -1,0 +1,35 @@
+<div class="modal-header">
+	<h3>{{course.name}}</h3>
+</div>
+
+<div class="modal-body">
+	<p>These are the sections available for {{course.id}}. Select individual sections to be included in your schedule.</p>
+	<a class="btn btn-link" ng-click="selectAll()">Select All</a>
+	<a class="btn btn-link" ng-click="selectNone()">Select None</a>
+	<a class="btn btn-link" ng-click="selectOpen()">Select Open</a>
+	<div ng-repeat="sectionType in sectionTypes">
+		<h4>{{sectionType.type}}</h4>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Section</th>
+					<th>Time</th>
+					<th>Days</th>
+					<th>Spaces</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="section in sectionType.sections" ng-class='{success: section.checked}'>
+					<td><input type="checkbox" ng-model="section.checked">     {{section.id}}</input></td>
+					<td>{{section.start_time}} - {{section.end_time}}</td>
+					<td>{{section.day}}</td>
+					<td>{{section.number_registered}} / {{section.spaces_available}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="modal-footer">
+	<button class="btn btn-default" ng-click="closeDialog()">Close</button>
+</div>

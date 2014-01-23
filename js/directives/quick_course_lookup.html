@@ -1,0 +1,58 @@
+<style>
+	.selected {
+		background-color: yellow;
+	}
+
+	.course-select {
+		position: absolute;
+		background-color: white;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 20px;
+		box-shadow: 0px 10px 10px grey;
+		z-index: 100;
+		border-radius: 5px;
+		opacity: 1;
+		webkit-transition: all linear 0.2s;
+		transition: all linear 0.2s;
+	}
+
+	.course-select.ng-hide-add,
+	.course-select.ng-hide-remove {
+  		display:block!important;
+	}
+
+	.course-select.ng-hide {
+		opacity: 0;
+	}
+</style>
+<form ng-submit="enterPressed()">
+	<input class="form-control" type="text" ng-model="search.term" style="width: 50%" placeholder="quick course lookup" ng-change="courseInputChanged()" ng-click="searchFocus()" ng-blur="searchLoseFocus($event)">
+</form>
+<div class="course-select" ng-show="showQuickCourseLookup">
+	<small ng-hide="showNumberSelect">Begin by typing the department abbreviation (AMST, CTCS, EE, etc).</small>
+	<small ng-show="showNumberSelect && !coursesLoadingSpinner">Now the course number.</small>
+	<table class="table table-condensed">
+		<thead ng-show="showNumberSelect">
+			<tr ng-repeat="department in filteredDepartments">
+				<th>{{department.code}}  {{department.name}}</th>
+			</tr>
+		</thead>
+		<tbody style="display: block; max-height: 100px; overflow-y: auto;">
+			<tr ng-repeat="department in filteredDepartments" ng-hide="showNumberSelect">
+				<td>{{department.code}}</td>
+				<td>{{department.name}}</td>
+			</tr>
+			<tr ng-repeat="course in filteredCourses" ng-show="showNumberSelect" ng-class="{selected: filteredCourses.length == 1}">
+				<td><button ng-focus="buttonFocus()" class="btn btn-default btn-xs" ng-click="courseAddClicked(course.number, course.name)"><span class="glyphicon glyphicon-plus"></span></button></td>
+				<td>{{course.number}}</td>
+				<td>{{course.name}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-show="coursesLoadingSpinner">
+		Loading courses...
+	</div>
+
+	<small ng-show="filteredCourses.length == 1">Press enter to add</small>
+</div>
