@@ -8,20 +8,25 @@ function Solution (data) {
 	 private methods
 	 ***************/
 
+	/****************
+	 public interface
+	 ****************/
+
 	/**
+	 * Loads data into the Solution object. Expects a JSON dicitonary with two keys: "sections" and "schedules"
 	 * Constructs Schedule objects from the given raw schedule data.
 	 */
-	var generateObjects = function () {
+	this.loadData = function (data) {
+		var raw_schedules = data.solutions;		// TODO right now, the server calls it "solutions", but it sould be called "schedules" to stay consistent. I need to change this.
+		var raw_sections = data.sections;
+
+		// Go through the provided data, create Schedule objects, and add them to our list.
 		for (var i = 0; i < raw_schedules.length; i++) {
 			var thisSchedule = raw_schedules[i];
 			var newSchedule = new Schedule(thisSchedule);
 			this.schedules.push(newSchedule);
 		}
 	}
-
-	/****************
-	 public interface
-	 ****************/
 
 	/**
 	 * Returns the number of schedules in this solution.
@@ -45,9 +50,10 @@ function Solution (data) {
 	 constructor
 	 ***********/
 
-	var raw_schedules = data.solutions;		// TODO right now, the server calls it "solutions", but it sould be called "schedules" to stay consistent. I need to change this.
-	var raw_sections = data.sections;
 	this.schedules = [];
-	generateObjects.call(this);
+
+	if (data) {
+		this.loadData(data);
+	}
 
 }
