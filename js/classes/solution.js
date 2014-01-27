@@ -36,11 +36,11 @@ function Solution (data) {
 	}
 
 	/**
-	 * Returns a Schedule object representing the schedule at index num.
+	 * Returns a Schedule object representing the schedule at index.
 	 */
-	this.getSchedule = function (num) {
-		if (num < this.schedules.length && num >= 0) {
-			return this.schedules[num];
+	this.getSchedule = function (index) {
+		if (index < this.schedules.length && index >= 0) {
+			return this.schedules[index];
 		} else {
 			throw "Schedule index out of bounds.";
 		}
