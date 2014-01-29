@@ -29,7 +29,40 @@
 
 </head>
 <body ng-controller="SchedulesCtrl">
+
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="font-size: 30px;">
+          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
+          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
+          	<span style="color: white">Schedu</span>wolf
+          	<span style="color: white; font-size: 20px;">
+          		Discover the perfect USC schedule.
+          	</span>
+          </div>
+          </a>
+        </div>
+        <!--
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Schedule</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        -->
+      </div>
+    </div>
+
 	<div class="container">
+		<!--
 		<div class="row">
 			<div class="page-header">
 				<h1>
@@ -41,6 +74,7 @@
 				</h1>
 			</div>
 		</div>
+		-->
 		<div class="row">
 			<div collapse="isCollapsed" class="col-xs-4">
 				<h3>Choose Courses & Priorities</h3>
