@@ -32,8 +32,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="page-header">
-				<h1>Scheduwolf
-				<small>Discover the perfect USC schedule.</small></h1>
+				<h1>
+				<img src="img/wolf.png" class="img-rounded" width="40">
+					<div style="display:inline-block; vertical-align: bottom">
+						Scheduwolf
+						<small>Discover the perfect USC schedule.</small>
+					</div>
+				</h1>
 			</div>
 		</div>
 		<div class="row">

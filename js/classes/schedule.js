@@ -17,7 +17,7 @@ function Schedule (data, sections) {
 	 		return;
 	 	}
 
-	 	return this.sections[index];
+	 	return this.sections[index];		// TODO this needs to change, obviously
 	 }
 
 	 /**
