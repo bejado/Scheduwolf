@@ -3,7 +3,7 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 	$scope.testSolution = {};
 	$scope.courses = [];
 	$scope.newCourse = {name:""};
-	$scope.priorities = {priorities: ["No class on Friday", "Later start times", "Less overall class time"]};
+	$scope.priorities = {priorities: ["No class on Friday", "Later start times", "Less overall class time", "Days of class per week"]};
 	$scope.needsUpdate = {val: true};
 	$scope.totalUnits = 0;
 
@@ -111,6 +111,8 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 					}
 					*/
 				}
+
+				// Make a call to the server to update the schedules
 				$scope.updateSchedules();
 			});
 			updateTotalUnits();
