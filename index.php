@@ -49,32 +49,10 @@
           </div>
           </a>
         </div>
-        <!--
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Schedule</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        -->
       </div>
     </div>
 
 	<div class="container">
-		<!--
-		<div class="row">
-			<div class="page-header">
-				<h1>
-				<img src="img/wolf.png" class="img-rounded" width="40">
-					<div style="display:inline-block; vertical-align: bottom">
-						Scheduwolf
-						<small>Discover the perfect USC schedule.</small>
-					</div>
-				</h1>
-			</div>
-		</div>
-		-->
 		<div class="row">
 			<div collapse="isCollapsed" class="col-xs-4">
 				<h3>Choose Courses & Priorities</h3>
