@@ -40,13 +40,13 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#" style="font-size: 30px;">
-          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
-          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
-          	<span style="color: white">Schedu</span>wolf
-          	<span style="color: white; font-size: 20px;">
-          		Discover the perfect USC schedule.
-          	</span>
-          </div>
+	          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
+	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
+	          	<span style="color: white">Schedu</span>wolf
+	          	<span style="color: white; font-size: 20px;">
+	          		Discover the perfect college schedule.
+	          	</span>
+         	 </div>
           </a>
         </div>
       </div>
