@@ -44,7 +44,7 @@
 	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
 	          	<span style="color: white">Schedu</span>wolf
 	          	<span style="color: white; font-size: 20px;">
-	          		Discover the perfect college schedule.
+	          		Discover the perfect USC schedule.
 	          	</span>
          	 </div>
           </a>
