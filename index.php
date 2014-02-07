@@ -32,7 +32,7 @@
 </head>
 <body ng-controller="SchedulesCtrl">
 
-	<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #666666">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -44,7 +44,7 @@
           <a class="navbar-brand" href="#" style="font-size: 30px;">
 	          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
 	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
-	          	<span style="color: white">Schedu</span>wolf
+	          	<span style="color: white">Scheduwolf</span>
 	          	<span style="color: white; font-size: 20px;">
 	          		Discover the perfect USC schedule.
 	          	</span>
