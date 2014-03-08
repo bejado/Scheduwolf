@@ -15,8 +15,6 @@
 	}
 ?>
 
-<!-- JUST A COMMENT -->
-
 <!DOCTYPE html>
 <html ng-app="scheduwolf">
 <head>
@@ -34,7 +32,7 @@
 </head>
 <body ng-controller="SchedulesCtrl">
 
-	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #666666">
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #666666;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,7 +46,7 @@
 	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
 	          	<span style="color: white">Scheduwolf</span>
 	          	<span style="color: white; font-size: 20px;">
-	          		Discover the perfect USC schedule.
+	          		Discover the perfect USC schedule. Hi Cosmo.
 	          	</span>
          	 </div>
           </a>
@@ -59,17 +57,17 @@
 	<div class="container">
 		<div class="row">
 			<div collapse="isCollapsed" class="col-xs-4">
-				<h3>Choose Courses & Priorities</h3>
-				<tabset>
-					<tab heading="Courses">
+				<!-- <h3>Choose Courses & Priorities</h3> -->
+				<!-- <tabset> -->
+					<!-- <tab heading="Courses"> -->
 						<div ng-include="'partials/course.html'"></div>
-					</tab>
-					<tab heading="Priorities">
-						<div ng-include="'partials/priorities.html'"></div>
-					</tab>
-				</tabset>
+					<!-- </tab> -->
+					<!-- <tab heading="Priorities"> -->
+						<!-- <div ng-include="'partials/priorities.html'"></div> -->
+					<!-- </tab> -->
+				<!-- </tabset> -->
 				<hr>
-				<div ng-include="'partials/save.html'"></div>
+				<!-- <div ng-include="'partials/save.html'"></div> -->
 			</div>
 			<div class="col-xs-8" ng-include="'partials/schedules.html'"></div>
 		</div>
@@ -92,5 +90,6 @@
 	<script type="text/javascript" src="js/directives/schedule.js"></script>
 	<script type="text/javascript" src="js/directives/priority_sorter.js"></script>
 	<script type="text/javascript" src="js/directives/quick_course_lookup.js"></script>
+	<script type="text/javascript" src="js/directives/course_search.js"></script>
 </body>
 </html>

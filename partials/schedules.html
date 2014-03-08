@@ -1,4 +1,4 @@
-<div ng-show="testSolution.solutions.length">
+<div ng-show="testSolution.solutions.length" style="position: relative; left:15px">
 	<button type="button" ng-click="previousSchedule()" class="btn btn-default" ng-class="{disabled: !previousButtonEnabled()}">Previous</button>
 	Current schedule: {{currentSchedule.index + 1}} of {{testSolution.solutions.length}}
 	<button type="button" ng-click="nextSchedule()" class="btn btn-default" ng-class="{disabled: !nextButtonEnabled()}">Next</button>	
