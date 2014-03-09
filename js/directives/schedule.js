@@ -24,7 +24,7 @@ app.directive('swSchedule', function() {
 				},
 				eventRender: function (event, element) {
 					if (event.hasAlternatives) {
-						element.append("<span style='position: absolute; display: block; right: 1%; top: 2.5%' class='glyphicon glyphicon-star'></span>");
+						element.append("<span style='position: absolute; display: block; right: 1%; top: 2.5%' class='glyphicon glyphicon-time'></span>");
 					}
 				},
 				eventClick: function(event) {
