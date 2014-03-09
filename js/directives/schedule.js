@@ -6,7 +6,6 @@ app.directive('swSchedule', function() {
 		var globalTip = true;
 		var viewingAlternativeSectionsFor;
 		var prettyColors = true;
-		var colors = ["red", "orange", "green", "blue", "navy", "purple"];
 
 		// Initialize calendar
 		$(element).fullCalendar( {
@@ -41,10 +40,12 @@ app.directive('swSchedule', function() {
 						element.css('opacity', '1');
 					}
 					if (event.hasAlternatives) {
-						element.css('border-color', 'blue');
+						element.css('border-color', 'black');
 						element.css('border-width', '2px');
 					}
 					element.css('transition', 'opacity .2s');
+					element.css('color', 'black');
+
 					
 					if (globalTip) {
 						// Create qtip content
@@ -98,9 +99,15 @@ app.directive('swSchedule', function() {
 			// to put on our calendar
 			var calendarEvents = [];
 
+			// When we need a new color for a new course, we'll choose one from our list using this index
+			//var newColorIndex = 0;
+
+			// Each course will be mapped to a unique color
+			//var colorDictionary = {};
+
 			// Go through each section in the solution
 			for (var i = 0; i < solution.sections.length; i++) {
-			
+
 				// The solution is a dictionary. One of the entries is "sections", which is an array of section numbers
 				var thisSectionNumber = solution.sections[i];
 
@@ -112,6 +119,23 @@ app.directive('swSchedule', function() {
 						thisSection = sectionArray[s];
 					}
 				}
+
+				// Decide which color to use
+				/*
+				courseTitle = thisSection.courseTitle;
+				var color = "";
+				if (courseTitle in colorDictionary) {
+					console.log("were in");
+					color = colorDictionary[courseTitle];
+				} else {
+					console.log("not in");
+					newColor = colors[newColorIndex];
+					colorDictionary[courseTitle] = newColor;
+					color = newColor;
+					newColorIndex++;
+				}
+				*/
+				color = thisSection.color;
 				
 				// Check to see if the section is on our low sections list
 				var lowValue = false;
@@ -141,28 +165,12 @@ app.directive('swSchedule', function() {
 												editable: false,
 												id: thisSection.sectionNumber,
 												section: thisSection,
-												color: 'rgb(100,100,255)',
+												color: color,
 												low: lowValue,
 												hasAlternatives: hasAlternatives});
 						}
 					}
 				}
-				
-				// Display the stats for the solution
-				/*
-				var stats = solution.stats;
-				if (stats) {
-					var statsTable = "";
-					for (var thisStat in stats) {
-						statsTable += "<tr><td>";
-						statsTable += thisStat;
-						statsTable += "</td><td>";
-						statsTable += stats[thisStat];
-						statsTable += "</td></tr><";
-					}			
-					$('#stats').html(statsTable);	
-				}
-				*/
 			}
 			
 			// Go through each section in additionalSections
@@ -182,12 +190,14 @@ app.directive('swSchedule', function() {
 					}
 					
 					// Choose a color for the section
+					/*
 					if (prettyColors) {
 						var colorIndex = i > colors.length - 1 ? colors.length - 1 : i;
 						var theColor = colors[colorIndex];
 					} else {
 						var theColor = 'rgb(' + String(100 + i * 70) + ',0,0)';
 					}
+					*/
 
 					// Go through each day of the week
 					for (var d = 0; d < 7; d++) {
@@ -203,7 +213,7 @@ app.directive('swSchedule', function() {
 													allDay: false,
 													editable: false,
 													id: thisSection.sectionNumber,
-													color: theColor,
+													color: "grey",
 													low: false,
 													alternative: true});
 							}
@@ -215,12 +225,6 @@ app.directive('swSchedule', function() {
 	
 			// Add the events to the calendar
 			$(element).fullCalendar('addEventSource', calendarEvents);
-			
-			// Set the prev and next buttons
-			//setPrevNext();
-			
-			// Let the user know what solution they're on
-			//$('#numSolutions').text("Solution " + (viewingSolution + 1) + " of " + solutions.length);
 			
 		}
 
