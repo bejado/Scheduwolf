@@ -24,7 +24,7 @@ app.directive('swSchedule', function() {
 				},
 				eventRender: function (event, element) {
 					if (event.hasAlternatives) {
-						element.append("<span style='position: absolute; display: block; right: 1%; top: 2.5%' class='glyphicon glyphicon-time'></span>");
+						element.append("<span style='position: absolute; display: block; right: 2%; top: 2.5%' class='glyphicon glyphicon-time'></span>");
 					}
 				},
 				eventClick: function(event) {
@@ -40,8 +40,14 @@ app.directive('swSchedule', function() {
 						element.css('opacity', '1');
 					}
 					if (event.hasAlternatives) {
+						/*
 						element.css('border-color', 'black');
-						element.css('border-width', '2px');
+						element.css('border-width', '3px');
+						*/
+						element.css('border-color', 'black');
+						element.css('border-width', '1px');
+						element.css('box-shadow', '3px 3px 10px #555555');
+						element.css('cursor', 'pointer');
 					}
 					element.css('transition', 'opacity .2s');
 					element.css('color', 'black');

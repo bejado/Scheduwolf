@@ -1,7 +1,11 @@
 <div ng-show="testSolution.solutions.length" style="position: relative; left:15px">
-	<button type="button" ng-click="previousSchedule()" class="btn btn-default" ng-class="{disabled: !previousButtonEnabled()}">Previous</button>
-	Current schedule: {{currentSchedule.index + 1}} of {{testSolution.solutions.length}}
-	<button type="button" ng-click="nextSchedule()" class="btn btn-default" ng-class="{disabled: !nextButtonEnabled()}">Next</button>	
+	<button type="button" ng-click="previousSchedule()" class="btn btn-default" ng-class="{disabled: !previousButtonEnabled()}">
+	<span class="glyphicon glyphicon-chevron-left">
+	</button>
+	{{currentSchedule.index + 1}} / {{testSolution.solutions.length}}
+	<button type="button" ng-click="nextSchedule()" class="btn btn-default" ng-class="{disabled: !nextButtonEnabled()}">
+	<span class="glyphicon glyphicon-chevron-right">
+	</button>	
 </div>
 <sw-schedule solution="testSolution" current-schedule="currentSchedule" class="col-xs-12">
 </sw-schedule>
