@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="css/flat-ui.css">
-<link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript" src="js/lib/angular.min.js"></script>
 <script type="text/javascript" src="js/controllers/email.js"></script>
@@ -22,6 +21,10 @@
 <script type="text/javascript" src="iconic/js/iconic.min.js"></script>
 <link rel="stylesheet" type="text/css" href="iconic/themes/red-duotone/red-duotone.css">
 
+<!-- typekit -->
+<script type="text/javascript" src="//use.typekit.net/ozf2pgy.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 <!-- Minor styling -->
 <style type="text/css">
 body { 
@@ -29,23 +32,22 @@ body {
 	-o-background-size: cover;
 	-webkit-background-size: cover;
 	background-size: cover;
-	background: url(bg_comp.jpg) no-repeat center center fixed; 
+	background: url(bg_comp.png) no-repeat center center fixed; 
 	color:white;
-	font-family: 'Roboto', sans-serif;
 }
 body h1 {
 	margin-top:0.8em;
 	font-size:3.5em;
     line-height:0.5em;
-    padding-bottom:0.5em;
-    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom:0.0em;
+    font-family: "proxima-nova", sans-serif;
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: 2px;
 }
 body h2, h3, h4, h5 {
 	color:white;
-	font-family: 'Roboto', sans-serif;
+	font-family: sans-serif;
+	font-family: "proxima-nova", sans-serif;
 }
 .aboutbutton {
 	margin-top:50px;
@@ -53,17 +55,49 @@ body h2, h3, h4, h5 {
 	border:1px solid white;
 	font-size:25px;
 }
+
+.circle{
+    border-width: 2px;   
+    
+}
+
+#icon1{
+	position: relative;
+	top: 14%;
+}
+
+#icon2{
+	position: relative;
+	top: 13%;
+}
+
+#icon3{
+	position: relative;
+	/*top: 23px;*/
+	top: 18%;
+}
+
+h5 {
+	font-weight: bold;
+}
+
+.description {
+	line-height: 110%;
+	font-weight: lighter;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" style="position:relative; left:20px" >
 
 <div class="row">
-	<div class="col-md-9">
+	<div class="col-md-8">
 		<h1>Scheduwolf</h1>
+		<asdie>Build and discover the perfect USC schedule.</aside>
 	</div>
 	<!--
 	<div class="col-md-3 aboutdiv">
@@ -73,7 +107,6 @@ body h2, h3, h4, h5 {
 	</div>
 	-->
 </div> <!-- close title row -->
-<aside>Build and discover the perfect USC schedule.</aside>
 
 <br>
 
@@ -81,31 +114,33 @@ body h2, h3, h4, h5 {
 
 <div class="col-md-4">
 	<div id="circle">
-		<img class="iconic" src="iconic/svg/flat/settings-lg.svg">
+		<img id="icon1" class="iconic" src="iconic/svg/flat/loop-lg.svg">
 	</div><br><br>
 	<div class="transparentdiv">
-	<h5>Schedule Optimization</h5>
-	<p>Fine tune your schedule by visualizing every possible arrangement of classes.</p>
+	<h5>Explore Schedules</h5>
+	<p class="description">Visualize every possible arrangement of class times.</p>
 	</div>
 </div>
-
 <div class="col-md-4">
 	<div id="circle">
-		<img class="iconic" src="iconic/svg/flat/magnifying-glass-lg.svg">
+		<img id="icon2" class="iconic" src="iconic/svg/flat/settings-lg.svg">
+	</div><br><br>
+	<div class="transparentdiv">	
+	<h5>Smart Filters </h5>
+	<p class="description">Don't want class on Fridays? We got you covered. </p>
+	</div>
+</div>
+<div class="col-md-4">
+	<div id="circle">
+		<img id="icon3" class="iconic" src="iconic/svg/flat/shield-lg.svg">
 	</div><br><br>
 	<div class="transparentdiv">
-	<h5>Smart Search</h5>
-	<p>Find courses by name, number, or professor.</p>
+	<h5>Trustable Seat Info</h5>
+	<p class="description">Our minions work 24/7 to make sure "open" means "open".</p>
 	</div>
 </div>
 
-<div class="col-md-4">
-	<div id="circle"></div><br><br>
-	<div class="transparentdiv">	
-	<h5>Class Recommendations</h5>
-	<p>Find classes based on your interests and requirements for your major.</p>
-	</div>
-</div>
+
 
 </div> <!-- close body row -->
 
