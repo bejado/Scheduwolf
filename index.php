@@ -27,8 +27,15 @@
 
 	<style>
 		.nav, .pagination, .carousel a { cursor: pointer; }
+		* {
+			font-family: "proxima-nova";
+		}
 	</style>
 	<link rel="icon" type="image/png" href="img/favicon.png">
+
+	<!-- typekit -->
+	<script type="text/javascript" src="//use.typekit.net/ozf2pgy.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body ng-controller="SchedulesCtrl">
 
@@ -44,9 +51,9 @@
           <a class="navbar-brand" href="#" style="font-size: 30px;">
 	          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
 	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
-	          	<span style="color: white">Scheduwolf</span>
+	          	<span style="color: white; font-weight: bold;">Scheduwolf</span>
 	          	<span style="color: white; font-size: 20px;">
-	          		Discover the perfect USC schedule. Hi Cosmo.
+	          		Discover the perfect USC schedule.
 	          	</span>
          	 </div>
           </a>
@@ -66,7 +73,7 @@
 						<!-- <div ng-include="'partials/priorities.html'"></div> -->
 					<!-- </tab> -->
 				<!-- </tabset> -->
-				<hr>
+				<!-- <hr> -->
 				<!-- <div ng-include="'partials/save.html'"></div> -->
 			</div>
 			<div class="col-xs-8" ng-include="'partials/schedules.html'"></div>

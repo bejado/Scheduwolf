@@ -16,8 +16,8 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 	/*
 	pretty colors to use
 	*/
-	var colors = ['#ff0842', '#38f5e1', '#ad8ffb', '#54fd78', '#ff67d2', '#fcf913'];
-	var newColorIndex = 0;
+	var colors = ['#E74C3C', '#F1C406', '#2ECC71', '#3498DB', '#9B59B6'];
+	var colorsInUse = [];
 	var colorDictionary = {};
 
 	/*
@@ -27,18 +27,27 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 	function injectColor (sections) {
 		for (var i = sections.length - 1; i >= 0; i--) {
 			var this_section = sections[i];
-			console.log(this_section);
 			this_section['color'] = colorDictionary[this_section['courseTitle']];
 		}
 	}
 
 	function assignNewColor (course) {
 		// choose a freely available pretty color
-		newColor = colors[newColorIndex];
-		newColorIndex++;
+		newColor = colors[0];
+		colors.splice(0,1);		// remove the first color from the color stack
+		console.log(colors);
+		colorsInUse.push(colors);
 
 		course['color'] = newColor;
 		colorDictionary[course.name] = newColor;
+	}
+
+	function freeColor (color) {
+		colors.push(color);
+		index = colorsInUse.indexOf(color);
+		if (index > -1) {
+			colorsInUse.splice(index, 1);
+		}
 	}
 
 	function updateTotalUnits () {
@@ -123,6 +132,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 	}
 
 	$scope.removeCourse = function ($course) {
+		oldColor = $course['color'];
+		freeColor(oldColor);
+
 		var i = $scope.courses.indexOf($course);
 		$scope.courses.splice(i, 1);
 		$scope.needsUpdate.val = true;

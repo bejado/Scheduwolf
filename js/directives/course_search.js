@@ -50,7 +50,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 				$timeout.cancel(scope.timeout_promise);
 				scope.timeout_promise = $timeout(function () {
 					performSearch();
-				}, 500);
+				}, 0);
 			} else {
 				scope.results = [];
 			}
