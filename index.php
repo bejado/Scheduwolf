@@ -30,6 +30,9 @@
 		* {
 			font-family: "proxima-nova";
 		}
+		.modal-dialog{
+			width: 1050px;
+		}
 	</style>
 	<link rel="icon" type="image/png" href="img/favicon.png">
 
@@ -74,7 +77,7 @@
 					<!-- </tab> -->
 				<!-- </tabset> -->
 				<!-- <hr> -->
-				<!-- <div ng-include="'partials/save.html'"></div> -->
+				<div ng-include="'partials/save.html'"></div>
 			</div>
 			<div class="col-xs-8" ng-include="'partials/schedules.html'"></div>
 		</div>
@@ -94,9 +97,12 @@
 	<script type="text/javascript" src="js/controllers/schedules.js"></script>
 	<script type="text/javascript" src="js/controllers/saveSchedule.js"></script>
 	<script type="text/javascript" src="js/controllers/editSections.js"></script>
+	<script type="text/javascript" src="js/controllers/finalSchedule.js"></script>
 	<script type="text/javascript" src="js/directives/schedule.js"></script>
 	<script type="text/javascript" src="js/directives/priority_sorter.js"></script>
 	<script type="text/javascript" src="js/directives/quick_course_lookup.js"></script>
 	<script type="text/javascript" src="js/directives/course_search.js"></script>
+	<script type="text/javascript" src="js/directives/conditions.js"></script>
+	<script type="text/javascript" src="js/directives/final_schedule.js"></script>
 </body>
 </html>

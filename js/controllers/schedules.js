@@ -253,4 +253,45 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			});
 		}
 	}
+
+	$scope.viewFinalSchedule = function () {
+		// Get a list of all the discussion sections for the current schedule
+		var section_list = [];
+
+		if ($scope.testSolution != {}) {
+			// Grab the section numbers
+			var sectionNumbers = $scope.testSolution.solutions[$scope.currentSchedule.index].sections;
+			var sections = $scope.testSolution.sections;
+
+			// Go through each section number in the solution
+			for (var i = 0; i < sectionNumbers.length; i++) {
+				var thisSectionNumber = sectionNumbers[i];
+
+				// Find the corresponding section object
+				var foundId = -1;
+				for (var j = 0; j < sections.length; j++) {
+					if (sections[j].sectionNumber == thisSectionNumber) {
+						foundId = j;
+						break;
+					}
+				}
+
+				// Add it to the list if it's a lecture section
+				var foundSection = sections[foundId];
+				if (foundSection.type == "lecture" || foundSection.type == "lecture-lab") {
+					section_list.push(foundSection);
+				}
+			}
+		}
+
+		var modalInstance = $modal.open({
+			templateUrl: "partials/finalSchedule.html",
+			controller: FinalScheduleCtrl,
+			resolve: {
+				sections: function () {
+					return section_list;
+				}
+			}
+		});
+	}
 }

@@ -5,7 +5,10 @@
 	{{currentSchedule.index + 1}} / {{testSolution.solutions.length}}
 	<button type="button" ng-click="nextSchedule()" class="btn btn-default" ng-class="{disabled: !nextButtonEnabled()}">
 	<span class="glyphicon glyphicon-chevron-right">
-	</button>	
+	</button>
+	<button type="button" ng-click="viewFinalSchedule()" class="btn btn-default">
+	View Final Schedule
+	</button>
 </div>
 <sw-schedule solution="testSolution" current-schedule="currentSchedule" class="col-xs-12">
 </sw-schedule>

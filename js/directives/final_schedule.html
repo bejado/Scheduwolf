@@ -1,0 +1,89 @@
+
+    
+    <style>
+            
+            
+            #final_schedule{
+                      width: 1000px;
+                      height: 500px;
+                      border-spacing: 0;
+                      text-align: center;
+                      font-family: "proxima-nova";
+                      vertical-align:top;
+/*
+                      padding: 1px;
+*/
+                      table-layout: fixed;
+                 }
+            
+            #final_schedule td,
+            #final_schedule tr
+                {                        
+                      border: 1px solid; 
+                      height: 62px;
+                       
+/*                        padding: 0.5em 1em;*/
+
+                 }
+            #final_schedule th  
+                {
+/*
+                    width: 125px;
+                    height: 62px;
+*/
+                    border: 2px solid ; 
+                    background-color: #d0d0d0;
+                    font-size: 18px;
+                    text-align: center;
+/*
+                        padding: 0.5em 1em;
+*/
+
+
+                }
+            #final_schedule .exam{
+                    background-color: #63ded0;
+                    overflow: auto;
+            }
+            /* the first 'th' within the first 'tr' of the 'table': */
+            table tr:first-child th:first-child {
+                border-radius: 0.6em 0 0 0;
+            }
+            /* the last 'th' within the first 'tr' of the 'table': */
+            table tr:first-child th:last-child {
+                border-radius: 0 0.6em 0 0;
+            }
+            /* the first 'td' within the last 'tr' of the 'table': */
+            table tr:last-child th:first-child {
+                border-radius: 0 0 0 0.6em;
+            }
+            /* the last 'td' within the last 'tr' of the 'table': */
+            table tr:last-child td:last-child {
+                border-radius: 0 0 0.6em 0;
+            }
+            
+        </style>
+
+    <table id="final_schedule">
+
+        <tr> <!-- row 0-->
+            <th></th>
+
+            <th ng-repeat="day in days">
+                {{day[0]}}<br>
+                {{day[1]}}
+            </th>
+        
+        </tr>
+
+        <tr ng-repeat="time in times" ng-init="row = $index">
+            <th>{{time}}</th>
+
+            <td ng-repeat="day in days" ng-init="column = $index; exam = examAtLocation(column, row)" ng-class="{exam: exam}">
+                <span ng-show="exam">
+                    {{exam.name}}
+                </span>
+            </td>
+        </tr>
+    
+    </table>
