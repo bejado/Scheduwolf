@@ -311,6 +311,9 @@ app.directive('swSchedule', function() {
 				var addlSections = calculateAlternativeSections(solutionArray[scope.currentSchedule.index].sections, event.id);
 				displaySolution(solutionArray[scope.currentSchedule.index], sectionArray, event.id, addlSections);
 				state = 1;
+
+				// MixPanel call
+				mixpanel.track("Section click on calendar");
 				
 			} 
 			// If we're already viewing alternative sections

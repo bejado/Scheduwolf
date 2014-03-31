@@ -86,7 +86,6 @@
 			</div>
 			<div class="col-xs-8" ng-include="'partials/schedules.html'"></div>
 		</div>
-		<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
 	</div>
 
 	<script type="text/javascript" src="js/lib/jquery.min.js"></script>
@@ -111,4 +110,7 @@
 	<script type="text/javascript" src="js/directives/conditions.js"></script>
 	<script type="text/javascript" src="js/directives/final_schedule.js"></script>
 </body>
+<footer>
+	<a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
+</footer>
 </html>
