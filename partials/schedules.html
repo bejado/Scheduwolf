@@ -6,9 +6,18 @@
 	<button type="button" ng-click="nextSchedule()" class="btn btn-default" ng-class="{disabled: !nextButtonEnabled()}">
 	<span class="glyphicon glyphicon-chevron-right">
 	</button>
-	<button type="button" ng-click="viewFinalSchedule()" class="btn btn-default">
+	<button type="button" ng-click="viewFinalSchedule()" class="btn btn-info">
 	View Final Schedule
 	</button>
+</div>
+<div ng-show="impossible">
+THAT'S IMPOSSIBLE!
+</div>
+<div class="alert alert-danger" ng-show="unexplainedError">
+Unfortunately, there seems to be a problem with our server. Try back later.
+</div>
+<div ng-show="noClasses.length">
+Sorry, sections are full for {{noClasses[0]}}.
 </div>
 <sw-schedule solution="testSolution" current-schedule="currentSchedule" class="col-xs-12">
 </sw-schedule>

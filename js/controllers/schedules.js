@@ -12,6 +12,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 	$scope.priorities = {priorities: ["No class on Friday", "Later start times", "Less overall class time", "Days of class per week"]};
 	$scope.needsUpdate = {val: true};
 	$scope.totalUnits = 0;
+	$scope.impossible = false;
+	$scope.unexplainedError = false;
+	$scope.noClasses = [];
 
 	/*
 	pretty colors to use
@@ -121,10 +124,25 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			injectColor($scope.testSolution.sections);
 			$scope.currentSchedule.index = 0;
 			$scope.needsUpdate.val = false;
+			$scope.impossible = false;
+			$scope.unexplainedError = false;
+			$scope.noClasses = [];
 		}).
 		error( function (data, status, headers, config) {
-			alert("Oh no! There was a server error :(");
+			if (status == 409) {
+				$scope.noClasses = data;
+			} else if (status == 417) {
+				$scope.impossible = true;
+				$scope.testSolution = {};
+			} else {
+				//alert("Oh no! There was a server error :(");
+				$scope.unexplainedError = true;
+			}
 		});
+	}
+
+	$scope.clearSolution = function () {
+		$scope.testSolution = {};
 	}
 
 	$scope.courseSelected = function (course) {
@@ -164,11 +182,13 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 				for (var j = 0; j < sections.length; j++) {
 					var thisSection = sections[j];
 					thisSection.checked = true;
-					/* restricts sections to only those open
+					// restricts sections to only those open
+					/* JUST FOR DEBUGGIN
+					 SWITCH THE < BACK TO A >= FOR PRODUCTION
+					 */
 					if (thisSection.canceled == "Y" || thisSection.number_registered >= thisSection.spaces_available) {
 						thisSection.checked = false;
 					}
-					*/
 				}
 
 				// Make a call to the server to update the schedules

@@ -88,6 +88,13 @@ app.directive('swSchedule', function() {
 		var solutionArray = scope.solutionObject.solutions;
 
 		/**
+		 * Removes all events on the calendar
+		 */
+		function clearSolutions () {
+			$(element).fullCalendar('removeEvents');
+		}
+
+		/**
 		 * Call this function to display a solution on the calendar.
 		 * solution should be a dictionary containing sections and stats
 		 * If highSection is set, every section will be low except the high section.
@@ -351,6 +358,8 @@ app.directive('swSchedule', function() {
 			solutionArray = scope.solutionObject.solutions;
 			if (solutionArray) {
 				displaySolution(solutionArray[scope.currentSchedule.index], sectionArray, false, []);
+			} else {
+				clearSolutions();
 			}
 		})
 
