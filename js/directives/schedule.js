@@ -77,6 +77,7 @@ app.directive('swSchedule', function() {
 				}
 			} );
 		$(element).fullCalendar('next');
+		$(element).css({'position': 'relative', 'top': '-20px'});
 
 		// (d, m, y) represents the Monday of the next week
 		var date = new Date();
