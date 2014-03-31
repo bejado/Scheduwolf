@@ -64,10 +64,12 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 
 	$scope.nextSchedule = function () {
 		$scope.currentSchedule.index++;
+		mixpanel.track("Next schedule");
 	}
 
 	$scope.previousSchedule = function () {
 		$scope.currentSchedule.index--;
+		mixpanel.track("Previous schedule");
 	}
 
 	$scope.nextButtonEnabled = function () {
@@ -162,6 +164,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			$scope.testSolution = {};
 		}
 		updateTotalUnits();
+
+		// MixPanel call
+		mixpanel.track("Course remove");
 	}	
 
 	$scope.addCourse = function ($course) {
@@ -174,6 +179,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 
 			// add the new course to the courses array
 			$scope.courses.push($course);
+
+			// MixPanel call
+			mixpanel.track("Course add");
 
 			// downlod the sections for the course
 			Sections.getSections($course.department, $course.number, function (data, status) {
@@ -225,6 +233,7 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			// nothing to do
 		});
 		$scope.updateSchedules();
+		mixpanel.track("Edit course sections");
 	}
 
 	$scope.viewSectionNumbers = function () {
@@ -233,6 +242,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			var sectionNumbers = $scope.testSolution.solutions[$scope.currentSchedule.index].sections;
 			var sections = $scope.testSolution.sections;
 			var sectionNumbersMap = {}
+
+			// MixPanel call
+			mixpanel.track("View section numbers");
 
 			// Go through each section number in the solution
 			for (var i = 0; i < sectionNumbers.length; i++) {
@@ -282,6 +294,9 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			// Grab the section numbers
 			var sectionNumbers = $scope.testSolution.solutions[$scope.currentSchedule.index].sections;
 			var sections = $scope.testSolution.sections;
+
+			// MixPanel call
+			mixpanel.track("View final schedules");
 
 			// Go through each section number in the solution
 			for (var i = 0; i < sectionNumbers.length; i++) {
