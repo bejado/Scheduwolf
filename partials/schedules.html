@@ -12,14 +12,14 @@
 	<br>
 	<br>
 </div>
-<div ng-show="impossible">
-THAT'S IMPOSSIBLE!
+<div class="alert alert-danger" ng-show="impossible" style="font-size: 20px">
+Sorry, but there is no possible schedule with your chosen courses. Remove a course and try again.
 </div>
-<div class="alert alert-danger" ng-show="unexplainedError">
+<div class="alert alert-danger" ng-show="unexplainedError" style="font-size: 20px">
 Unfortunately, there seems to be a problem with our server. Try back later.
 </div>
-<div ng-show="noClasses.length">
-Sorry, sections are full for {{noClasses[0]}}.
+<div class="alert alert-danger" ng-show="noClasses.length" style="font-size: 20px">
+Sorry, {{noClasses[0]}} has no open sections.
 </div>
 <sw-schedule solution="testSolution" current-schedule="currentSchedule" class="col-xs-12">
 </sw-schedule>

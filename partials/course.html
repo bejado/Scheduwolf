@@ -9,7 +9,7 @@
 </div>
 <table class="table table-bordered"  style="table-layout: fixed;" ng-show="courses.length">
 	<tr ng-repeat="course in courses | reverse" ng-style='{"background-color": course.color}'>
-		<td style="width: 10%; vertical-align: middle;"><a style="cursor: pointer; color: black;" ng-click="removeCourse(course)"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
+		<td style="width: 10%; vertical-align: middle; font-size: 20px"><a style="cursor: pointer; color: black;" ng-click="removeCourse(course)"><span class="glyphicon glyphicon-remove-circle"></span></a></td>
 		<td style="width: 20%; vertical-align: middle;">{{course.id}}</td>
 		<td style="word-wrap: break-word; vertical-align: middle;">
 			<a style="cursor: pointer; color: black;" ng-click="editCourseSections(course)">{{course.name}}<span style="float: right" class="glyphicon glyphicon-pencil"></span></a>

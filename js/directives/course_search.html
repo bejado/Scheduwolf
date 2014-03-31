@@ -74,7 +74,7 @@
 					<div class="title">{{result._source.name}}</div>
 					<div class="identifier">{{result._source.common}}</div>
 					<div>
-						<span ng-repeat="prof in result._source.professors">{{prof}} </span>
+						<span ng-repeat="prof in result._source.professors">{{prof}} <span ng-show="!$last">• </span></span>
 					</div>
 			</td>
 			<td style="width: 30px">
