@@ -1,20 +1,3 @@
-<?php
-	/* These are our valid username and passwords */
-	$pass = 'deathtowebreg';
-	$pass2 = 'crashcourse';
-
-	if (isset($_COOKIE['password'])) {
-		if ($_COOKIE['password'] != md5($pass) &&
-			$_COOKIE['password'] != md5($pass2)) {
-			header('Location: login.html');
-		} else {
-			// They're in
-		}
-	} else {
-		header('Location: login.html');
-	}
-?>
-
 <!DOCTYPE html>
 <html ng-app="scheduwolf">
 <head>
