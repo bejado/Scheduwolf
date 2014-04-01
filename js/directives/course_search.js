@@ -20,6 +20,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 		scope.mouseInBox = false;
 		scope.courseSelectedIndex = 0;
 		scope.visible = false;
+		scope.searching = false;
 
 		$("#sw-search").qtip({
 			content: {
@@ -55,16 +56,18 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 			ElasticSearch.search(scope.search.term, function (data, status) {
 				scope.results = data;
 				scope.courseSelectedIndex = 0;
+				scope.searching = false;
 			});
 		}
 
 		scope.courseSearchChanged = function () {
 			if (scope.search.term.length > 0) {
+				scope.searching = true;
 				// set a timeout so we don't search every character
 				$timeout.cancel(scope.timeout_promise);
 				scope.timeout_promise = $timeout(function () {
 					performSearch();
-				}, 0);
+				}, 500);
 			} else {
 				scope.results = [];
 			}

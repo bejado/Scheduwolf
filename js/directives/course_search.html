@@ -67,9 +67,9 @@
 <form id="sw-search" ng-submit="">
 	<input autofocus class="form-control" type="text" ng-model="search.term" style="width: 100%" placeholder="Search courses by name, number, or professor." ng-keydown="keypressed($event)" ng-change="courseSearchChanged()" ng-blur="visible = false" ng-click="visible = search.term.length > 0">
 </form>
-<div class="box course-select" ng-show="visible">
+<div class="box course-select" ng-show="visible && !searching">
 	<table id="course_search" ng-show="results.length > 0">
-		<tr ng-repeat="result in results" ng-class="{highlighted: $index == courseSelectedIndex}" ng-mouseenter="courseHover($index)" ng-click="courseEnterPressed()">
+		<tr ng-repeat="result in results" ng-class="{highlighted: $index == courseSelectedIndex}" ng-mouseenter="courseHover($index)" ng-click="courseEnterPressed()" ng-hide="searching">
 			<td>
 					<div class="title">{{result._source.name}}</div>
 					<div class="identifier">{{result._source.common}}</div>
@@ -82,7 +82,7 @@
 			</td>
 		</tr>
 	</table>
-	<p class="info" ng-hide="results.length > 0 || search.term.length == 0">
+	<p class="info" ng-hide="results.length > 0 || search.term.length == 0 || searching">
 		Sorry, no results for {{search.term}}
 	</p>
 </div>
