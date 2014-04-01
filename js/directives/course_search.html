@@ -64,7 +64,7 @@
 	}
 
 </style>
-<form ng-submit="">
+<form id="sw-search" ng-submit="">
 	<input autofocus class="form-control" type="text" ng-model="search.term" style="width: 100%" placeholder="Search courses by name, number, or professor." ng-keydown="keypressed($event)" ng-change="courseSearchChanged()" ng-blur="visible = false" ng-click="visible = search.term.length > 0">
 </form>
 <div class="box course-select" ng-show="visible">

@@ -6,6 +6,7 @@ app.directive('swSchedule', function() {
 		var globalTip = true;
 		var viewingAlternativeSectionsFor;
 		var prettyColors = true;
+		var alternativeSectionsTipShown = false;
 
 		// Initialize calendar
 		$(element).fullCalendar( {
@@ -73,6 +74,16 @@ app.directive('swSchedule', function() {
 									classes: 'qtip-tipsy'
 								}
 						});
+					}
+
+					if (event.hasAlternatives && !alternativeSectionsTipShown) {
+						element.qtip({
+							content: {
+								text: "Click sections with a clock <span class='glyphicon glyphicon-time'></span> to view alternative times."
+							}
+						});
+						element.qtip('toggle', true);
+						alternativeSectionsTipShown = true;
 					}
 				}
 			} );

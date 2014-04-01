@@ -21,6 +21,20 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 		scope.courseSelectedIndex = 0;
 		scope.visible = false;
 
+		$("#sw-search").qtip({
+			content: {
+				text: 'Start here by typing the name of a USC course'
+			},
+			position: {
+				my: 'right top',
+				at: 'bottom right'
+			},
+			hide: {
+				delay: 5000
+			}
+		});
+		$("#sw-search").qtip('toggle', true);
+
 		/*
 		 * Takes an elastic search object, constructs an appropriate $course object and performs the callback
 		 */
@@ -55,6 +69,9 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 				scope.results = [];
 			}
 			scope.visible = scope.search.term.length > 0;
+
+			// hide the tip
+			$("#sw-search").qtip('toggle', false);
 		};
 
 		scope.keypressed = function ($event) {
