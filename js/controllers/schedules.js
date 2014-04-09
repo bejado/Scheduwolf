@@ -194,7 +194,7 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 					/* JUST FOR DEBUGGIN
 					 SWITCH THE < BACK TO A >= FOR PRODUCTION
 					 */
-					if (thisSection.canceled == "Y" || thisSection.number_registered >= thisSection.spaces_available) {
+					if (thisSection.canceled == "Y" || parseInt(thisSection.number_registered) >= parseInt(thisSection.spaces_available)) {
 						thisSection.checked = false;
 					}
 				}
