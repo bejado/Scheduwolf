@@ -30,6 +30,7 @@ function EditSectionsCtrl ($scope, course, $modalInstance) {
 	}
 
 	function selectAll (value) {
+		console.log("all or none!");
 		for (var i = 0; i < $scope.sectionTypes.length; i++) {
 			var thisSectionType = $scope.sectionTypes[i];
 			for (var j = 0; j < thisSectionType.sections.length; j++) {

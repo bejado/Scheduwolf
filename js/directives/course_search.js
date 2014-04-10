@@ -25,7 +25,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 
 		$("#sw-search").qtip({
 			content: {
-				text: 'Start here by typing the name of a USC course'
+				text: '<span style="font-size: 20px">Start here by typing the name of a USC course.</span>'
 			},
 			position: {
 				my: 'right top',
@@ -39,7 +39,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 
 		$("#course_search").qtip({
 			content: {
-				text: 'Use the arrow keys <span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span> and enter to choose the course you want.'
+				text: '<span style="font-size: 20px">Use the arrow keys <span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span> and enter to choose the course you want.</span>'
 			},
 			position: {
 				my: 'bottom left',
@@ -52,6 +52,10 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 		 * Takes an elastic search object, constructs an appropriate $course object and performs the callback
 		 */
 		function doCallback (es) {
+			setTimeout(function () {
+				$("#course_search").qtip('toggle', false);
+			}, 0);
+
 			var courseObject = {};
 			courseObject.department = es._source.department;
 			courseObject.id = es._source.common;
@@ -71,7 +75,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 				scope.searching = false;
 
 				// If this is our first time searching
-				setInterval(function () {
+				setTimeout(function () {
 					if (scope.firstTime) {
 						$("#course_search").qtip('toggle', true);
 					}

@@ -87,7 +87,7 @@
           <a class="navbar-brand" href="#" style="font-size: 30px;">
 	          <img src="img/wolf.png" class="img-rounded" width="40" style="display: inline-block; vertical-align:middle;">
 	          <div style="display: inline-block; position:relative; top:10px; font-size: 30px">
-	          	<span style="color: white; font-weight: bold;">Scheduwolf</span>
+	          	<span style="color: white; font-weight: bold;">Scheduwolf <sup style="font-size: 15px">Beta</sup></span>
 	          	<span style="color: white; font-size: 20px;">
 	          		Discover the perfect USC schedule.
 	          	</span>

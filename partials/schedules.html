@@ -19,7 +19,7 @@ Sorry, but there is no possible schedule with your chosen courses. Remove a cour
 Unfortunately, there seems to be a problem with our server. Try back later.
 </div>
 <div class="alert alert-danger" ng-show="noClasses.length" style="font-size: 20px">
-Sorry, {{noClasses[0]}} has no open sections.
+Sorry, {{noClasses[0]}} has no open sections. <a ng-click="noClassesEditCourseSections(noClasses[0])" class="btn btn-link">Use full sections..</a>
 </div>
 <sw-schedule solution="testSolution" current-schedule="currentSchedule" class="col-xs-12">
 </sw-schedule>

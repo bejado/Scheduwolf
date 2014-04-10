@@ -236,6 +236,28 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 		mixpanel.track("Edit course sections");
 	}
 
+	$scope.noClassesEditCourseSections = function (course) {
+
+		for (var i = 0; i < $scope.courses.length; i++) {
+			var thisCourse = $scope.courses[i];
+			if (thisCourse.name == course) {
+				//var thisCourse = $scope.editCourseSections(thisCourse);
+				var foundCourse = thisCourse;
+				//return;
+				break;
+			}
+		};
+
+		var sections = foundCourse.sections;
+		for (var i = 0; i < sections.length; i++) {
+			var thisSection = sections[i];
+			thisSection.checked = true;
+		};
+
+		$scope.updateSchedules();
+
+	}
+
 	$scope.viewSectionNumbers = function () {
 		if ($scope.testSolution != {}) {
 			// Grab the section numbers
