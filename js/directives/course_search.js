@@ -23,6 +23,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 		scope.searching = false;
 		scope.firstTime = true;
 
+/*
 		$("#sw-search").qtip({
 			content: {
 				text: '<span style="font-size: 20px">Start here by typing the name of a USC course.</span>'
@@ -36,6 +37,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 			}
 		});
 		$("#sw-search").qtip('toggle', true);
+		*/
 
 		$("#course_search").qtip({
 			content: {
