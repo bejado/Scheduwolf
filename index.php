@@ -102,7 +102,6 @@
 	 			<ul class="nav navbar-nav">
 	 				<li class="active"><a href="#">Home</a></li>
 	 				<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
 					<li><a href="feedback.html">Feedback</a></li>
 					<li><a href="terms.html">Terms of Service</a></li>
 	 			</ul>

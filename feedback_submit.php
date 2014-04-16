@@ -53,7 +53,6 @@
 	 			<ul class="nav navbar-nav">
 	 				<li><a href="index.php">Home</a></li>
 	 				<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
 					<li class="active"><a href="#">Feedback</a></li>
 					<li><a href="terms.html">Terms of Service</a></li>
 	 			</ul>
