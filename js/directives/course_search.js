@@ -41,7 +41,7 @@ app.directive('swCourseSearch', function ($filter, $http, ElasticSearch, $timeou
 
 		$("#course_search").qtip({
 			content: {
-				text: '<span style="font-size: 20px">Use the arrow keys <span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span> and enter to choose the course you want.</span>'
+				text: '<span>Use the arrow keys <span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span> and enter to choose the course you want.</span>'
 			},
 			position: {
 				my: 'bottom left',

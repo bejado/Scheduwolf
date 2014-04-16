@@ -79,7 +79,7 @@ app.directive('swSchedule', function() {
 					if (event.hasAlternatives && !alternativeSectionsTipShown) {
 						element.qtip({
 							content: {
-								text: "<span style='font-size: 20px'>Click sections with a clock <span class='glyphicon glyphicon-time'></span> to view alternative times.</span>"
+								text: "<span>Click sections with a clock <span class='glyphicon glyphicon-time'></span> to view alternative times.</span>"
 							}
 						});
 						element.qtip('toggle', true);
