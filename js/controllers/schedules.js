@@ -230,9 +230,10 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 		modalInstance.result.then(function () {
 			$scope.updateSchedules();
 		}, function () {
-			// nothing to do
+			$scope.updateSchedules();
 		});
-		$scope.updateSchedules();
+		//console.log("here");
+		//$scope.updateSchedules();
 		mixpanel.track("Edit course sections");
 	}
 
