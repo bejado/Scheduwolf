@@ -112,7 +112,6 @@
 
 	<div class="container">
 		<div class="row">
-			This is the minified version.
 			<div collapse="isCollapsed" class="col-xs-4">
 					<div ng-include="'partials/course.html'"></div>
 				<div ng-show="testSolution.solutions.length" ng-include="'partials/save.html'"></div>
