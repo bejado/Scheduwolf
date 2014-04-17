@@ -4,7 +4,28 @@ app.filter('reverse', function() {
   };
 });
 
-function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) {
+/*
+Update that a course was added.
+*/
+app.factory('courseLogger', function ($http) {
+	return {
+		log: function (department, number) {
+			return $http({
+				method: 'POST',
+				url: '/api/log',
+				params: {
+					department: department,
+					number: number
+				},
+				headers: {
+					'Content-type': 'application/x-www-form-urlencoded'
+				}
+			});
+		}
+	};
+});
+
+function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections, courseLogger) {
 	$scope.currentSchedule = {index: 0};
 	$scope.testSolution = {};
 	$scope.courses = [];
@@ -183,6 +204,10 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 			// MixPanel call
 			mixpanel.track("Course add");
 
+			// Log the course add
+			console.log("logging: " + $course.department + $course.number);
+			courseLogger.log($course.department, $course.number);
+
 			// downlod the sections for the course
 			Sections.getSections($course.department, $course.number, function (data, status) {
 				$course.sections = data;
@@ -202,10 +227,13 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections) 
 				// Make a call to the server to update the schedules
 				$scope.updateSchedules();
 			});
+
+			// Update the total units
 			updateTotalUnits();
 		} else {
 			alert("That course is already in your bin.");
 		}
+
 		$scope.newCourse.name = '';
 		$scope.needsUpdate.val = true;
 	}
