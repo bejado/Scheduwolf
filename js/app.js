@@ -1,4 +1,4 @@
-var app = angular.module('scheduwolf', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
+var app = angular.module('scheduwolf', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
 
 app.factory("Courses", function() {
 	return [];

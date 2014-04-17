@@ -25,7 +25,7 @@ app.factory('courseLogger', function ($http) {
 	};
 });
 
-function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections, courseLogger) {
+function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections, courseLogger, $cookies) {
 	$scope.currentSchedule = {index: 0};
 	$scope.testSolution = {};
 	$scope.courses = [];
@@ -205,8 +205,10 @@ function SchedulesCtrl ($scope, $routeParams, $http, $filter, $modal, Sections, 
 			mixpanel.track("Course add");
 
 			// Log the course add
-			console.log("logging: " + $course.department + $course.number);
-			courseLogger.log($course.department, $course.number);
+			if (!$cookies.developer) {
+				console.log("logging: " + $course.department + $course.number);
+				courseLogger.log($course.department, $course.number);
+			}
 
 			// downlod the sections for the course
 			Sections.getSections($course.department, $course.number, function (data, status) {

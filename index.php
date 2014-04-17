@@ -74,6 +74,15 @@
 
 </head>
 <body ng-controller="SchedulesCtrl">
+	<!-- Facebook like button -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=160601030784759";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #666666; margin: 0px">
       <div class="container">
@@ -125,6 +134,7 @@
 	<script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/lib/angular-animate.min.js"></script>
+	<script type="text/javascript" src="js/lib/angular-cookies.min.js"></script>
 	<script type="text/javascript" src="js/lib/fullcalendar.min.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.qtip.js"></script>
 	<script type="text/javascript" src="js/lib/ui-bootstrap-tpls-0.9.0.min.js"></script>
