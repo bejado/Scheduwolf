@@ -16,6 +16,23 @@
 		.modal-dialog{
 			width: 1050px;
 		}
+
+        .sidetab
+        {
+            padding: 0px; margin: -60px 0px 0px;
+            position: fixed;
+            z-index: 9999;
+            outline: none;
+            overflow: hidden;
+            right: 0px;
+            background-color: rgb(0, 0, 0);
+            height: 120px; width: 32px;
+            cursor: pointer; background-position: 0px 0px;
+            background-repeat: no-repeat no-repeat;"
+            width='34px';"
+            onmouseout="this.style.width='32px';
+        }
+
 	</style>
 	<link rel="icon" type="image/png" href="img/favicon.png">
 
@@ -63,7 +80,7 @@
 		}]);
 
 		// Add default trigger to the bottom-right corner of the window:
-		UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
+		//UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
 
 		// Or, use your own custom trigger:
 		//UserVoice.push(['addTrigger', '#id', { mode: 'contact' }]);
@@ -84,7 +101,9 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 
-	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #666666; margin: 0px">
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="
+	/*background-image:linear-gradient(to bottom,#623888,#623888 ); For creating a gradient */
+          background-color: #623888; margin: 0px">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -94,7 +113,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#" style="font-size: 30px;">
-	          <!-- <img src="img/wolf.png" class="img-rounded" width="30" style="display: inline-block; vertical-align: middle;"> -->
+	           <img src="img/wolf.png" class="img-rounded" width="30" style="display: inline-block; vertical-align: middle;">
 	          <div style="display: inline-block; position: relative; top:10px; font-size: 30px">
 	          	<span style="color: white; font-weight: bold;">Scheduwolf <sup style="font-size: 15px">Beta</sup></span>
 	          	<span style="color: white; font-size: 20px;">
@@ -110,13 +129,30 @@
 	      	<div class="collapse navbar-collapse">
 	 			<ul class="nav navbar-nav">
 	 				<li class="active"><a href="#">Home</a></li>
-	 				<li><a href="about.html">About</a></li>
-					<li><a href="feedback.html">Feedback</a></li>
-					<li><a href="terms.html">Terms of Service</a></li>
+<!--					<li><a href="feedback.html" data-uv-trigger>Feedback</a></li>-->
+<!--                    <li><a href="#" data-uv-trigger="smartvote">Post an Idea</a></li>-->
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
 	 			</ul>
 	        </div>
         </div>
       </div>
+
+<!--    Feedback  button-->
+    <div data-uv-trigger class="sidetab"
+         style="background-image: url(img/feedback.png); top: 40%;"
+         onmouseover="this.style.cursor='pointer';
+     this.style.width='34px';"
+         onmouseout="this.style.width='32px';">
+    </div>
+
+    <!--    Post an Idea button-->
+    <div data-uv-trigger="smartvote" class="sidetab"
+         style="background-image: url(img/postanidea.png);  top: 65%;"
+         onmouseover="this.style.cursor='pointer';
+     this.style.width='34px';"
+         onmouseout="this.style.width='32px';">
+    </div>
 
 	<div class="container">
 		<div class="row">
